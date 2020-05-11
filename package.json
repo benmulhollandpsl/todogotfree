@@ -1,0 +1,38 @@
+{
+  "name": "TodogotFree.js",
+  "version": "0.1.0",
+  "author": "Ben Mulholland <ben.mulholland@gmail.com> based 90% off of Dan Hough <daniel.hough@gmail.com>",
+  "description": "A browser-based SkiFree port, modified for a dog and his friends",
+  "contributors": [
+    {
+      "name": "Daniel Hough",
+      "email": "daniel.hough@gmail.com",
+      "url": "https://danhough.com"
+    },
+    {
+      "name": "tomgrim",
+      "url": "https://github.com/tomgrim"
+    },
+    {
+      "name": "andersevenrud",
+      "url": "https://github.com/andersevenrud"
+    },
+    {
+      "name": "benmulhollandpsl",
+      "url": "https://github.com/benmulhollandpsl"
+    }
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "sugar": "1.3.x",
+    "mocha": "1.8.x",
+    "should": "1.2.x"
+  },
+  "dependencies": {
+    "eventedloop": "~1.0.1",
+    "hammerjs": "git://github.com/EightMedia/hammer.js",
+    "br-mousetrap": "~1.1.3"
+  }
+}
