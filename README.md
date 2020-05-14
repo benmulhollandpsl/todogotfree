@@ -41,6 +41,7 @@ per original instructions from Dan Hough's original port
 * [HTML5 Boilerplate](http://html5boilerplate.com) provided a bunch of useful markup and stuff
 * piskelapp (http://piskelapp.com)
 * Thank you [Chris Pirih](http://ski.ihoc.net/) for making the original.
+* Thank you Dan Hough for creating [skifree.js](http://www.danhough.com/blog/skifree-js/) 
 
 ## License
 
