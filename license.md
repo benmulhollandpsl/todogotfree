@@ -9,3 +9,5 @@ _____
 This version (2020) Ben Mulholland based on abovementioned Copyrighted work.
 
 All current sprites, and sounds in this version Copyright (C) 2020 Ben Mulholland.
+
+due to my early understanding of forking repositories, I've had to make a copy of this outright.  My next iteration will be to contribute to and refork the original repository by Daniel Hough.
