@@ -1,12 +1,11 @@
 {
   "name": "TodogotFree.js",
   "version": "0.1.0",
-  "author": "Ben Mulholland <ben.mulholland@gmail.com> based 95% off of Dan Hough <daniel.hough@gmail.com>",
+  "author": "Ben Mulholland <ben.mulholland@gmail.com> based off of Dan Hough <daniel.hough@gmail.com> Skifree.js",
   "description": "A browser-based SkiFree port, modified for a cat and their friends",
   "contributors": [
     {
       "name": "Daniel Hough",
-      "email": "daniel.hough@gmail.com",
       "url": "https://danhough.com"
     },
     {
