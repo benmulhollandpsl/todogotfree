@@ -39,4 +39,5 @@ the purpose of this is to demo some minigames that our todogotchis can experienc
 
 ## License
 
-Free Use
+Images require permission
+all code free use etc.
