@@ -1,8 +1,3 @@
-/*
- *
- * For the browser ONLY
- *
- */
 
 var global = this;
 

@@ -37,6 +37,9 @@ the purpose of this is to demo some minigames that our todogotchis can experienc
 * Thank you [Chris Pirih](http://ski.ihoc.net/) for making the original.
 * Thank you Dan Hough for creating [skifree.js](http://www.danhough.com/blog/skifree-js/) 
 
+
+I kept object Id terms and boilerplate pretty much the same, i've altered 'collision' sligtly to fit todogotchi's theme.  next iteration is a different canvas style game similiar to the theme of this one.
+
 ## License
 
 Images require permission

@@ -967,7 +967,7 @@ if (typeof module !== 'undefined') {
 var Sprite = require('./sprite');
 
 (function(global) {
-	function Snowboarder(data) {
+	function surfboarder(data) {
 		var that = new Sprite(data);
 		var sup = {
 			draw: that.superior('draw'),
@@ -1014,12 +1014,12 @@ var Sprite = require('./sprite');
 		return that;
 	}
 
-	global.snowboarder = Snowboarder;
+	global.surfboarder = surfboarder;
 })( this );
 
 
 if (typeof module !== 'undefined') {
-	module.exports = this.snowboarder;
+	module.exports = this.surfboarder;
 }
 },{"./sprite":11}],11:[function(require,module,exports){
 (function (global) {
@@ -1478,7 +1478,7 @@ var isMobileDevice = require('./lib/isMobileDevice');
 var SpriteArray = require('./lib/spriteArray');
 var Monster = require('./lib/monster');
 var Sprite = require('./lib/sprite');
-var Snowboarder = require('./lib/snowboarder');
+var surfboarder = require('./lib/surfboarder');
 var Skier = require('./lib/skier');
 var InfoBox = require('./lib/infoBox');
 var Game = require('./lib/game');
@@ -1498,7 +1498,7 @@ var monsterDistanceThreshold = 2000;
 var livesLeft = 5;
 var highScore = 0;
 var loseLifeOnObstacleHit = false;
-var dropRates = {smallTree: 4, tallTree: 2, jump: 1, thickSnow: 1, rock: 1};
+var dropRates = {smallrock: 4, tallrock: 2, jump: 1, thickSnow: 1, rock: 1};
 if (localStorage.getItem('highScore')) highScore = localStorage.getItem('highScore');
 
 function loadImages (sources, next) {
@@ -1578,12 +1578,12 @@ function startNeverEndingGame (images) {
 	}
 
 	function spawnBoarder () {
-		var newBoarder = new Snowboarder(sprites.snowboarder);
+		var newBoarder = new surfboarder(sprites.surfboarder);
 		var randomPositionAbove = dContext.getRandomMapPositionAboveViewport();
 		var randomPositionBelow = dContext.getRandomMapPositionBelowViewport();
 		newBoarder.setMapPosition(randomPositionAbove[0], randomPositionAbove[1]);
 		newBoarder.setMapPositionTarget(randomPositionBelow[0], randomPositionBelow[1]);
-		newBoarder.onHitting(player, sprites.snowboarder.hitBehaviour.skier);
+		newBoarder.onHitting(player, sprites.surfboarder.hitBehaviour.skier);
 
 		game.addMovingObject(newBoarder);
 	}
@@ -1622,8 +1622,8 @@ function startNeverEndingGame (images) {
 		var newObjects = [];
 		if (player.isMoving) {
 			newObjects = Sprite.createObjects([
-				{ sprite: sprites.smallTree, dropRate: dropRates.smallTree },
-				{ sprite: sprites.tallTree, dropRate: dropRates.tallTree },
+				{ sprite: sprites.smallrock, dropRate: dropRates.smallrock },
+				{ sprite: sprites.tallrock, dropRate: dropRates.tallrock },
 				{ sprite: sprites.jump, dropRate: dropRates.jump },
 				{ sprite: sprites.thickSnow, dropRate: dropRates.thickSnow },
 				{ sprite: sprites.rock, dropRate: dropRates.rock },
@@ -1743,7 +1743,7 @@ loadImages(imageSources, startNeverEndingGame);
 
 this.exports = window;
 
-},{"./lib/canvasRenderingContext2DExtensions":1,"./lib/extenders":2,"./lib/game":3,"./lib/infoBox":5,"./lib/isMobileDevice":6,"./lib/monster":7,"./lib/plugins":8,"./lib/skier":9,"./lib/snowboarder":10,"./lib/sprite":11,"./lib/spriteArray":12,"./spriteInfo":14,"br-mousetrap":15,"hammerjs":18}],14:[function(require,module,exports){
+},{"./lib/canvasRenderingContext2DExtensions":1,"./lib/extenders":2,"./lib/game":3,"./lib/infoBox":5,"./lib/isMobileDevice":6,"./lib/monster":7,"./lib/plugins":8,"./lib/skier":9,"./lib/surfboarder":10,"./lib/sprite":11,"./lib/spriteArray":12,"./spriteInfo":14,"br-mousetrap":15,"hammerjs":18}],14:[function(require,module,exports){
 (function (global) {
 	var sprites = {
 		'skier' : {
@@ -1768,7 +1768,7 @@ this.exports = window;
 			id : 'player',
 			hitBehaviour: {}
 		},
-		'smallTree' : {
+		'smallrock' : {
 			$imageFile : 'skifree-objects.png',
 			parts : {
 				main : [ 0, 28, 30, 34 ]
@@ -1778,7 +1778,7 @@ this.exports = window;
 			},
 			hitBehaviour: {}
 		},
-		'tallTree' : {
+		'tallrock' : {
 			$imageFile : 'skifree-objects.png',
 			parts : {
 				main : [ 95, 66, 32, 64 ]
@@ -1833,7 +1833,7 @@ this.exports = window;
 			},
 			hitBehaviour: {}
 		},
-		'snowboarder' : {
+		'surfboarder' : {
 			$imageFile : 'sprite-characters.png',
 			parts : {
 				sEast : [ 73, 229, 20, 29 ],
@@ -1850,29 +1850,29 @@ this.exports = window;
 		}
 	};
 
-	function monsterHitsTreeBehaviour(monster) {
+	function monsterHitsrockBehaviour(monster) {
 		monster.deleteOnNextCycle();
 	}
 
-	sprites.monster.hitBehaviour.tree = monsterHitsTreeBehaviour;
+	sprites.monster.hitBehaviour.rock = monsterHitsrockBehaviour;
 
-	function treeHitsMonsterBehaviour(tree, monster) {
+	function rockHitsMonsterBehaviour(rock, monster) {
 		monster.deleteOnNextCycle();
 	}
 
-	sprites.smallTree.hitBehaviour.monster = treeHitsMonsterBehaviour;
-	sprites.tallTree.hitBehaviour.monster = treeHitsMonsterBehaviour;
+	sprites.smallrock.hitBehaviour.monster = rockHitsMonsterBehaviour;
+	sprites.tallrock.hitBehaviour.monster = rockHitsMonsterBehaviour;
 
-	function skierHitsTreeBehaviour(skier, tree) {
-		skier.hasHitObstacle(tree);
+	function skierHitsrockBehaviour(skier, rock) {
+		skier.hasHitObstacle(rock);
 	}
 
-	function treeHitsSkierBehaviour(tree, skier) {
-		skier.hasHitObstacle(tree);
+	function rockHitsSkierBehaviour(rock, skier) {
+		skier.hasHitObstacle(rock);
 	}
 
-	sprites.smallTree.hitBehaviour.skier = treeHitsSkierBehaviour;
-	sprites.tallTree.hitBehaviour.skier = treeHitsSkierBehaviour;
+	sprites.smallrock.hitBehaviour.skier = rockHitsSkierBehaviour;
+	sprites.tallrock.hitBehaviour.skier = rockHitsSkierBehaviour;
 
 	function rockHitsSkierBehaviour(rock, skier) {
 		skier.hasHitObstacle(rock);
@@ -1909,11 +1909,11 @@ this.exports = window;
 
 	// sprites.thickSnow.hitBehaviour.skier = thickSnowHitsSkierBehaviour;
 
-	function snowboarderHitsSkierBehaviour(snowboarder, skier) {
-		skier.hasHitObstacle(snowboarder);
+	function surfboarderHitsSkierBehaviour(surfboarder, skier) {
+		skier.hasHitObstacle(surfboarder);
 	}
 
-	sprites.snowboarder.hitBehaviour.skier = snowboarderHitsSkierBehaviour;
+	sprites.surfboarder.hitBehaviour.skier = surfboarderHitsSkierBehaviour;
 
 	global.spriteInfo = sprites;
 })( this );

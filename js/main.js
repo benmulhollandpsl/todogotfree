@@ -14,7 +14,7 @@ var isMobileDevice = require('./lib/isMobileDevice');
 var SpriteArray = require('./lib/spriteArray');
 var Monster = require('./lib/monster');
 var Sprite = require('./lib/sprite');
-var Snowboarder = require('./lib/snowboarder');
+var surfboarder = require('./lib/surfboarder');
 var Skier = require('./lib/skier');
 var InfoBox = require('./lib/infoBox');
 var Game = require('./lib/game');
@@ -34,7 +34,7 @@ var monsterDistanceThreshold = 2000;
 var livesLeft = 5;
 var highScore = 0;
 var loseLifeOnObstacleHit = false;
-var dropRates = {smallTree: 4, tallTree: 2, jump: 1, thickSnow: 1, rock: 1};
+var dropRates = {smallrock: 4, tallrock: 2, jump: 1, thickSnow: 1, rock: 1};
 if (localStorage.getItem('highScore')) highScore = localStorage.getItem('highScore');
 
 function loadImages (sources, next) {
@@ -114,12 +114,12 @@ function startNeverEndingGame (images) {
 	}
 
 	function spawnBoarder () {
-		var newBoarder = new Snowboarder(sprites.snowboarder);
+		var newBoarder = new surfboarder(sprites.surfboarder);
 		var randomPositionAbove = dContext.getRandomMapPositionAboveViewport();
 		var randomPositionBelow = dContext.getRandomMapPositionBelowViewport();
 		newBoarder.setMapPosition(randomPositionAbove[0], randomPositionAbove[1]);
 		newBoarder.setMapPositionTarget(randomPositionBelow[0], randomPositionBelow[1]);
-		newBoarder.onHitting(player, sprites.snowboarder.hitBehaviour.skier);
+		newBoarder.onHitting(player, sprites.surfboarder.hitBehaviour.skier);
 
 		game.addMovingObject(newBoarder);
 	}
@@ -158,8 +158,8 @@ function startNeverEndingGame (images) {
 		var newObjects = [];
 		if (player.isMoving) {
 			newObjects = Sprite.createObjects([
-				{ sprite: sprites.smallTree, dropRate: dropRates.smallTree },
-				{ sprite: sprites.tallTree, dropRate: dropRates.tallTree },
+				{ sprite: sprites.smallrock, dropRate: dropRates.smallrock },
+				{ sprite: sprites.tallrock, dropRate: dropRates.tallrock },
 				{ sprite: sprites.jump, dropRate: dropRates.jump },
 				{ sprite: sprites.thickSnow, dropRate: dropRates.thickSnow },
 				{ sprite: sprites.rock, dropRate: dropRates.rock },

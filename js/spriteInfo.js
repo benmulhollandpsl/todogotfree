@@ -22,7 +22,7 @@
 			id : 'player',
 			hitBehaviour: {}
 		},
-		'smallTree' : {
+		'smallrock' : {
 			$imageFile : 'skifree-objects.png',
 			parts : {
 				main : [ 0, 28, 30, 34 ]
@@ -32,7 +32,7 @@
 			},
 			hitBehaviour: {}
 		},
-		'tallTree' : {
+		'tallrock' : {
 			$imageFile : 'skifree-objects.png',
 			parts : {
 				main : [ 95, 66, 32, 64 ]
@@ -87,7 +87,7 @@
 			},
 			hitBehaviour: {}
 		},
-		'snowboarder' : {
+		'surfboarder' : {
 			$imageFile : 'sprite-characters.png',
 			parts : {
 				sEast : [ 73, 229, 20, 29 ],
@@ -104,29 +104,29 @@
 		}
 	};
 
-	function monsterHitsTreeBehaviour(monster) {
+	function monsterHitsrockBehaviour(monster) {
 		monster.deleteOnNextCycle();
 	}
 
-	sprites.monster.hitBehaviour.tree = monsterHitsTreeBehaviour;
+	sprites.monster.hitBehaviour.rock = monsterHitsrockBehaviour;
 
-	function treeHitsMonsterBehaviour(tree, monster) {
+	function rockHitsMonsterBehaviour(rock, monster) {
 		monster.deleteOnNextCycle();
 	}
 
-	sprites.smallTree.hitBehaviour.monster = treeHitsMonsterBehaviour;
-	sprites.tallTree.hitBehaviour.monster = treeHitsMonsterBehaviour;
+	sprites.smallrock.hitBehaviour.monster = rockHitsMonsterBehaviour;
+	sprites.tallrock.hitBehaviour.monster = rockHitsMonsterBehaviour;
 
-	function skierHitsTreeBehaviour(skier, tree) {
-		skier.hasHitObstacle(tree);
+	function skierHitsrockBehaviour(skier, rock) {
+		skier.hasHitObstacle(rock);
 	}
 
-	function treeHitsSkierBehaviour(tree, skier) {
-		skier.hasHitObstacle(tree);
+	function rockHitsSkierBehaviour(rock, skier) {
+		skier.hasHitObstacle(rock);
 	}
 
-	sprites.smallTree.hitBehaviour.skier = treeHitsSkierBehaviour;
-	sprites.tallTree.hitBehaviour.skier = treeHitsSkierBehaviour;
+	sprites.smallrock.hitBehaviour.skier = rockHitsSkierBehaviour;
+	sprites.tallrock.hitBehaviour.skier = rockHitsSkierBehaviour;
 
 	function rockHitsSkierBehaviour(rock, skier) {
 		skier.hasHitObstacle(rock);
@@ -163,11 +163,11 @@
 
 	// sprites.thickSnow.hitBehaviour.skier = thickSnowHitsSkierBehaviour;
 
-	function snowboarderHitsSkierBehaviour(snowboarder, skier) {
-		skier.hasHitObstacle(snowboarder);
+	function surfboarderHitsSkierBehaviour(surfboarder, skier) {
+		skier.hasHitObstacle(surfboarder);
 	}
 
-	sprites.snowboarder.hitBehaviour.skier = snowboarderHitsSkierBehaviour;
+	sprites.surfboarder.hitBehaviour.skier = surfboarderHitsSkierBehaviour;
 
 	global.spriteInfo = sprites;
 })( this );

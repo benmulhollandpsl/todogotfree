@@ -1,7 +1,7 @@
 var Sprite = require('./sprite');
 
 (function(global) {
-	function Snowboarder(data) {
+	function surfboarder(data) {
 		var that = new Sprite(data);
 		var sup = {
 			draw: that.superior('draw'),
@@ -48,10 +48,10 @@ var Sprite = require('./sprite');
 		return that;
 	}
 
-	global.snowboarder = Snowboarder;
+	global.surfboarder = surfboarder;
 })( this );
 
 
 if (typeof module !== 'undefined') {
-	module.exports = this.snowboarder;
+	module.exports = this.surfboarder;
 }
