@@ -5,6 +5,10 @@ This App is based off Skifree.js made by [Dan Hough](http://www.danhough.com/blo
 
 the purpose of this is to demo some minigames that our todogotchis can experience as part of their enrichment.  Future versions of our app may or may not use this, I was really in a Windows 3.1 mindset when I started this project- and we may opt for the traditional memory style games on old-school tamagotchis.
 
+
+![desktop demo](/Todogotfree.js.gif)
+
+
 ## Features so far:
 
 * Surfing down a never-ending wave with randomly-generated waves and whales, which do not have transparent backgrounds
